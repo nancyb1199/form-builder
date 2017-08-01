@@ -96,28 +96,25 @@ let formData = [
 
 
 // -------- Your Code Goes Below this Line --------
-var fields = document.getElementById('fields')
+var fields = document.getElementById("fields")
 
 for (let i=0; i < formData.length; i++){
 
-/*    let newLabel = document.createElement('label'); */
-    let newInput = document.createElement('input');
+    var newInput = document.createElement("input");
+
+    var newLabel = document.createElement("label");
 
     newInput.setAttribute("type", formData[i].type);
     newInput.setAttribute("name", formData[i].id);
     newInput.setAttribute("option", formData[i].options);
-    newInput.setAttribute("label", formData[i].label);
 
+    newLabel.htmlFor = newInput;
+    newLabel.innerHTML = formData[i].label;
+  
 
-
-/*    newLabel.label = formData[i].label;
-
-    newInput.type = formData[i].type;
-    newInput.id = formData[i].id;
-    newInput.options = formData[i].options;
-
-fields.appendChild(newLabel); */
 console.log(newInput);
+
+fields.appendChild(newLabel);
 fields.appendChild(newInput);
 
 } /* i loop */
