@@ -102,19 +102,20 @@ for (let i=0; i < formData.length; i++){
 
     var newInput = document.createElement("input");
 
-    var newLabel = document.createElement("label");
+/*    var newLabel = document.createElement("label"); */
 
     newInput.setAttribute("type", formData[i].type);
     newInput.setAttribute("name", formData[i].id);
     newInput.setAttribute("option", formData[i].options);
+    newInput.setAttribute("placeholder", formData[i].label);
 
-    newLabel.htmlFor = newInput;
-    newLabel.innerHTML = formData[i].label;
-  
+  /*  newLabel.htmlFor = newInput;
+    newLabel.innerHTML = formData[i].label; */
+
 
 console.log(newInput);
 
-fields.appendChild(newLabel);
+/* fields.appendChild(newLabel); */
 fields.appendChild(newInput);
 
 } /* i loop */
