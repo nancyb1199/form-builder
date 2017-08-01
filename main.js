@@ -100,22 +100,47 @@ var fields = document.getElementById("fields")
 
 for (let i=0; i < formData.length; i++){
 
+  if( formData[i].type == "text" || formData[i].type == "email"){
+
     var newInput = document.createElement("input");
-
-/*    var newLabel = document.createElement("label"); */
-
     newInput.setAttribute("type", formData[i].type);
     newInput.setAttribute("name", formData[i].id);
     newInput.setAttribute("option", formData[i].options);
     newInput.setAttribute("placeholder", formData[i].label);
+    fields.appendChild(newInput);
+  }
+  else if( formData[i].type == "select"){
 
-  /*  newLabel.htmlFor = newInput;
-    newLabel.innerHTML = formData[i].label; */
+    var newSelect = document.createElement("select");
+    newSelect.setAttribute("type", formData[i].type);
+    newSelect.setAttribute("name", formData[i].id);
+    newSelect.setAttribute("options", formData[i].options);
+    newSelect.setAttribute("placeholder", formData[i].label);
+    fields.appendChild(newSelect);
+  }
+  else if (formData[i].type == "textarea"){
+
+    var newTextArea = document.createElement("textarea");
+    newTextArea.setAttribute("type", formData[i].type);
+    newTextArea.setAttribute("name", formData[i].id);
+    newTextArea.setAttribute("option", formData[i].options);
+    newTextArea.setAttribute("placeholder", formData[i].label);
+    newTextArea.setAttribute("rows", 5);
+    fields.appendChild(newTextArea);
+  }
+  else{  /* type = tel */
+
+    var newTel = document.createElement("input");
+    newTel.setAttribute("type", formData[i].type);
+    newTel.setAttribute("name", formData[i].id);
+    newTel.setAttribute("option", formData[i].options);
+    newTel.setAttribute("placeholder", formData[i].label);
+    fields.appendChild(newTel);
+  }
 
 
 console.log(newInput);
 
-/* fields.appendChild(newLabel); */
-fields.appendChild(newInput);
+
 
 } /* i loop */
