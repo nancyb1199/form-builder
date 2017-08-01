@@ -114,9 +114,19 @@ for (let i=0; i < formData.length; i++){
     var newSelect = document.createElement("select");
     newSelect.setAttribute("type", formData[i].type);
     newSelect.setAttribute("name", formData[i].id);
-    newSelect.setAttribute("options", formData[i].options);
     newSelect.setAttribute("placeholder", formData[i].label);
+
+    for (let j=0; j<formData[i].options.length; j++){
+      var newOption = document.createElement("option");
+      console.log(newOption);
+      newOption.innerHTML = formData[i].options[j].label;
+      newOption.setAttribute("value", formData[i].options[j].value);
+      newSelect.appendChild(newOption);
+    }
+
+
     fields.appendChild(newSelect);
+    console.log(newSelect);
   }
   else if (formData[i].type == "textarea"){
 
@@ -137,10 +147,5 @@ for (let i=0; i < formData.length; i++){
     newTel.setAttribute("placeholder", formData[i].label);
     fields.appendChild(newTel);
   }
-
-
-console.log(newInput);
-
-
 
 } /* i loop */
